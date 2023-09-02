@@ -11,6 +11,7 @@ function getRandomNumber(min, max) {
 let ClickSound;
 let GoodSound;
 let WrongSound;
+let Deselect;
 
 function createSounds() {
 
@@ -144,7 +145,7 @@ $(document).ready(function () {
         {
             $(this).css("background", "rgb(18 91 137)");
             oldResponse = newResponse;
-            ClickSound.play();
+            // ClickSound.play();
 
         }
         else {
