@@ -29,6 +29,20 @@ function createSounds() {
 
 }
 
+function romanize (num) {
+    if (isNaN(num))
+        return NaN;
+    var digits = String(+num).split(""),
+        key = ["","C","CC","CCC","CD","D","DC","DCC","DCCC","CM",
+               "","X","XX","XXX","XL","L","LX","LXX","LXXX","XC",
+               "","I","II","III","IV","V","VI","VII","VIII","IX"],
+        roman = "",
+        i = 3;
+    while (i--)
+        roman = (key[+digits.pop() + (i * 10)] || "") + roman;
+    return Array(+digits.join("") + 1).join("M") + roman;
+}
+
 function revelateResponse(response) {
     $(".initialContainerAnwser").each(function () {
         let optionResponse = $(this)[0].innerText;
@@ -95,7 +109,7 @@ function changeCard() {
     } while (currentCard.Name == CONFIG[randomValue].Name);
     currentCard = CONFIG[randomValue];
     $('#initialContainerCardImage').attr('src', IMAGE_PATH + currentCard.Image);
-    $('#initialContainerNameTitle').text(currentCard.Name);
+    $('#initialContainerNameTitle').text(romanize(currentCard.Value) + ". " + currentCard.Name);
     generateResponse(randomValue);
 
     console.log("Random Value: " + randomValue);
@@ -114,6 +128,7 @@ $(document).ready(function () {
 
     $("#initialContainerCardImage").on("click", function () {
         changeCard();
+        oldResponse = "";
     });
 
     let oldResponse = "";
@@ -121,6 +136,7 @@ $(document).ready(function () {
 
         if (!isGaming) {
             changeCard();
+            oldResponse = "";
             return;
         }
 
