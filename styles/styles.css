@@ -1,0 +1,145 @@
+body {
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+#headerContainer {
+    width: 100vw;
+    height: 10vh;
+    background-color: rgb(0, 5, 27);
+    text-align: center;
+}
+
+#initialContainer {
+    width: 100vw;
+    height: 85vh;
+    background-color: rgb(0, 10, 53);
+    color: antiquewhite;
+}
+
+#footerContainer {
+    width: 100vw;
+    height: 5vh;
+    background-color: rgb(0, 5, 27);
+}
+
+/* HEADER */
+
+#headerContainerTitle {
+    padding-top: 3vh;
+    height: 100%;
+    color: aliceblue;
+    font-size: 3.5vh;
+}
+
+/* BODY */
+#initialContainerName {
+    text-align: center;
+    padding-top: 3vh;
+    padding-bottom: 2vh;
+    display: flex;
+    justify-content: center;
+    max-height: 7vh;
+}
+
+.initialContainerNameTitle {
+    font-size: 5vw;
+    letter-spacing: 0.1vh;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #ffffff;
+    cursor: pointer;
+    border: 0.3vh solid;
+    padding: 2vh;
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+    position: relative;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    background-color: rgb(0, 7, 37);
+}
+
+#initialContainerNamePoints{
+    position: absolute;
+    right: 2vh;
+    top: 3vh;
+    width: 5vh;
+    text-align: right;
+    height: 5vh;
+    background: rgba(0, 255, 221, 0.623);
+    overflow: hidden;
+    border-radius: 100%;
+    text-align: center;
+    display: grid;
+    align-items: center;
+}
+
+#initialContainerCard {
+    max-height: 45vh;
+    text-align: center;
+}
+
+#initialContainerCardImage {
+    max-height: 45vh;
+    background: #01233d;
+    border-radius: 2vh;
+}
+
+#initialContainerQuestion
+{
+    max-height: 4vh;
+    text-align: center;
+    font-size: 2vh;
+    margin-top: 1vh;
+}
+
+#initialContainerQuestionTitle {
+    margin-left: 3vh;
+    margin-right: 3vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    border-radius: 1.2vh;
+    background-color: rgb(0, 7, 37);
+
+}
+
+#initialContainerAnwsers
+{
+    margin-top: 1vh;
+    text-align: center;
+    max-height: 15vh;
+}
+
+.initialContainerAnwser
+{
+    height: 4vh;
+    background: #042d47;
+        margin-left: 4vh;
+    margin-right: 4vh;
+    margin-top: 1vh;
+    border-radius: 0.5vh;
+    padding: 0.3vh;
+    display: grid;
+    align-items: center;
+    align-content: center;
+}
+
+
+.container {
+
+    width: 150px;
+    height: 150px;
+    border: 1px solid black;
+  }
+
+/* FOOTER */
+
+#footerContainerTitle {
+    padding-top: 1vh;
+    height: 100%;
+    color: aliceblue;
+    text-align: center;
+    font-size: 1.5vh;
+}
+
+
+/* CSS */
