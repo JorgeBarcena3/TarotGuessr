@@ -34,7 +34,7 @@ body {
 /* BODY */
 #initialContainerName {
     text-align: center;
-    padding-top: 3vh;
+    padding-top: 2vh;
     padding-bottom: 2vh;
     display: flex;
     justify-content: center;
@@ -60,7 +60,7 @@ body {
 
 #initialContainerNamePoints {
     position: absolute;
-    right: 2vh;
+    right: 8vw;
     top: 3vh;
     width: 5vh;
     text-align: right;
@@ -80,6 +80,15 @@ body {
 
 #initialContainerCardImage {
     max-height: 45vh;
+    min-height: 45vh;
+    background: #01233d;
+    border-radius: 2vh;
+}
+
+#initialContainerCardImageNext
+{
+    max-height: 45vh;
+    min-height: 45vh;
     background: #01233d;
     border-radius: 2vh;
 }
@@ -89,6 +98,7 @@ body {
     text-align: center;
     font-size: 2vh;
     margin-top: 1vh;
+    margin-bottom: 1vh;
 }
 
 #initialContainerQuestionTitle {
@@ -102,7 +112,7 @@ body {
 }
 
 #initialContainerAnwsers {
-    margin-top: 1vh;
+    margin-top: 2vh;
     text-align: center;
     max-height: 15vh;
     /* max-width: 95vw; */
