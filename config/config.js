@@ -1,4 +1,4 @@
-var IMAGE_PATH = "../images/";
+var IMAGE_PATH = "./images/";
 var MAX_ANSWERS = 4;
 var CONFIG = [
     {
