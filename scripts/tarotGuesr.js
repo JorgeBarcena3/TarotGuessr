@@ -15,17 +15,17 @@ let Deselect;
 
 function createSounds() {
 
-    ClickSound = document.createElement('audio');
-    ClickSound.setAttribute('src', '../Sounds/click.mp3');
+    // ClickSound = document.createElement('audio');
+    // ClickSound.setAttribute('src', '../Sounds/click.mp3');
 
-    GoodSound = document.createElement('audio');
-    GoodSound.setAttribute('src', '../Sounds/Good.mp3');
+    // GoodSound = document.createElement('audio');
+    // GoodSound.setAttribute('src', '../Sounds/Good.mp3');
 
-    WrongSound = document.createElement('audio');
-    WrongSound.setAttribute('src', '../Sounds/Wrong.mp3');
+    // WrongSound = document.createElement('audio');
+    // WrongSound.setAttribute('src', '../Sounds/Wrong.mp3');
 
-    Deselect = document.createElement('audio');
-    Deselect.setAttribute('src', '../Sounds/deselect.mp3');
+    // Deselect = document.createElement('audio');
+    // Deselect.setAttribute('src', '../Sounds/deselect.mp3');
 
 }
 
@@ -129,11 +129,11 @@ $(document).ready(function () {
         {
             if (checkResponse(e.target.innerText)) {
                 $(this).css("background", "green");
-                GoodSound.play();
+                // GoodSound.play();
             }
             else {
                 $(this).css("background", "red");
-                WrongSound.play();
+                // WrongSound.play();
             };
 
             revelateResponse(newResponse);
@@ -151,7 +151,7 @@ $(document).ready(function () {
         else {
             $(".initialContainerAnwser").css("background", "#042d47");
             oldResponse = "";
-            Deselect.play();
+            // Deselect.play();
         }
 
     });
