@@ -94,9 +94,9 @@ function changeCard() {
         randomValue = getRandomNumber(0, CONFIG.length - 1);
     } while (currentCard.Name == CONFIG[randomValue].Name);
     currentCard = CONFIG[randomValue];
-    generateResponse(randomValue);
     $('#initialContainerCardImage').attr('src', IMAGE_PATH + currentCard.Image);
     $('#initialContainerNameTitle').text(currentCard.Name);
+    generateResponse(randomValue);
 
     console.log("Random Value: " + randomValue);
     console.log("Card: " + JSON.stringify(currentCard));
