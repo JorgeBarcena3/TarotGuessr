@@ -166,8 +166,8 @@ function createSlider() {
 }
 
 function showInfo() {
-    if (isAnimating)
-        return;
+    if (isAnimating) return;
+    ClickSound.play();
     isAnimating = true;
     $("#initialContainerCardInfo").text(currentCard.Description);
     $("#initialContainerCardInfo").attr('enabled', 'enabled');
@@ -190,7 +190,7 @@ const quitInfo = async () => {
 function hideInfo() {
 
     if (isAnimating) return;
-
+    ClickSound.play();
     isAnimating = true;
     $("#initialContainerCardInfo").css("opacity", 0);
     quitInfo();
