@@ -1,4 +1,4 @@
-const CACHE_NAME = 'tarot-cache';
+const CACHE = 'tarot-cache';
 
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
 
@@ -33,7 +33,7 @@ if (workbox.navigationPreload.isSupported()) {
 workbox.routing.registerRoute(
   new RegExp('/*'),
   new workbox.strategies.StaleWhileRevalidate({
-    cacheName: CACHE_NAME
+    cacheName: CACHE
   })
 );
 
