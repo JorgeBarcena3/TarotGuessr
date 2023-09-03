@@ -33,7 +33,7 @@ if (workbox.navigationPreload.isSupported()) {
 workbox.routing.registerRoute(
   new RegExp('/*'),
   new workbox.strategies.StaleWhileRevalidate({
-    cacheName: CACHE
+    cacheName: CACHE_NAME
   })
 );
 
