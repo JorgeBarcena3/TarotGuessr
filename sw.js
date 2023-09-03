@@ -7,7 +7,8 @@ const PRECACHE_ASSETS = [
     '/scripts/',
     '/Sounds/',
     '/Styles/',
-    '/lib/'
+    '/lib/',
+    "/"
 ]
 
 // Listener for the install event - precaches our assets list on service worker install.
