@@ -2,13 +2,13 @@ const CACHE_NAME = 'tarot-cache';
 
 // Add whichever assets you want to precache here:
 const PRECACHE_ASSETS = [
-    '/images/',
+    '/images/*',
     '/config/',
     '/scripts/',
     '/Sounds/',
     '/Styles/',
     '/lib/',
-    "/"
+    "/index.html"
 ]
 
 // Listener for the install event - precaches our assets list on service worker install.
@@ -19,6 +19,7 @@ self.addEventListener('install', event => {
     })());
 });
 self.addEventListener('load', event => {
+    debugger;
     event.waitUntil((async () => {
         const cache = await caches.open(CACHE_NAME);
         cache.addAll(PRECACHE_ASSETS);

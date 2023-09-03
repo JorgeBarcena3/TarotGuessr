@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarot Guessr</title>
+    <link rel="stylesheet" type="text/css" href="lib/mobile-select-master/dist/style/mobile-select.css" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="shortcut icon" href="images/icon.png" />
+    <script>
+        if (!navigator.serviceWorker.controller) {
+            navigator.serviceWorker.register("/sw.js").then(function (reg) {
+                console.log("Service worker has been registered for scope: " + reg.scope);
+            });
+        }
+    </script>
+    <script src="lib/jquery-3.7.1.min.js.js"></script>
+    <script type="text/javascript" src="lib/mobile-select-master/dist/mobile-select.iife.min.js"></script>
+    <script src="config/config.js"></script>
+    <script src="scripts/tarotGuesr.js"></script>
+
+</head>
+
+<body style="margin: 0;">
+
+    <div class="background">
+        <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <div id="headerContainer">
+        <div id="headerContainerTitle">Tarot Guessr</div>
+    </div>
+    <div id="initialContainer">
+        <div id="initialContainerName">
+            <div class="initialContainerNameTitle" id="initialContainerNameTitle">XX NAME CARD</div>
+            <div id="initialContainerNamePoints">
+                <p id="points" style="margin: 0;">0</p>
+            </div>
+        </div>
+        <div id="initialContainerCard">
+            <img src="./images/1.MAGO.png" id="initialContainerCardImage"></img>
+            <div id="initialContainerCardInfo">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at dolor
+                in orci eleifend fermentum non vitae ligula. Phasellus id elit purus. In sed condimentum nunc. Aliquam
+                sagittis, sapien eu lobortis tempor, arcu purus posuere purus, eu condimentum leo nunc eu neque. Donec
+                interdum nisl vitae tortor lacinia pharetra. Nulla scelerisque neque lectus, vel ultricies nulla aliquam
+                et. In elementum nisi quis tortor porttitor fermentum. Sed a molestie purus. Ut sit amet sodales nunc,
+                nec ultrices urna. Nam pellentesque, sem in fringilla dapibus</div>
+        </div>
+        <div id="initialContainerQuestion">
+            <div id="initialContainerQuestionTitle">SE CARACTERIZA POR: </div>
+
+        </div>
+        <div id="initialContainerAnwsers">
+            <button class="initialContainerAnwser" id="initialContainerAnwser1">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </button>
+            <button class="initialContainerAnwser" id="initialContainerAnwser2">
+                <p>Lorem ipsum dolor sit amet</p>
+            </button>
+            <button class="initialContainerAnwser" id="initialContainerAnwser3">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </button>
+            <button class="initialContainerAnwser" id="initialContainerAnwser4">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </button>
+        </div>
+    </div>
+    <div id="footerContainer">
+        <div id="footerContainerTitle">Jorge Barcena ©</div>
+    </div>
+
+
+
+</body>
+
+</html>
