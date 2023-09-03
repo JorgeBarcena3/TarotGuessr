@@ -16,7 +16,7 @@
   "orientation": "portrait",
   "scope": "/",
   "short_name": "TarotGuesr",
-  "start_url": "index.html",
+  "start_url": "/index.html",
   "theme_color": "#07002f",
   "categories": [
     "education",
@@ -64,7 +64,7 @@
   "shortcuts": [
     {
       "name": "Open",
-      "url": "/",
+      "url": "/index.html",
       "description": "Open app"
     }
   ],
