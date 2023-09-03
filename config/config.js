@@ -2,7 +2,7 @@ var IMAGE_PATH = "./images/";
 var MAX_ANSWERS = 4;
 var CONFIG = [
     {
-        "Name": "The Magician",
+        "Name": "MAGO",
         "Value": 1,
         "Image": "1.MAGO.png",
         "Description": "Poder, habilidad, manifestación"

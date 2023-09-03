@@ -29,13 +29,13 @@ function createSounds() {
 
 }
 
-function romanize (num) {
+function romanize(num) {
     if (isNaN(num))
         return NaN;
     var digits = String(+num).split(""),
-        key = ["","C","CC","CCC","CD","D","DC","DCC","DCCC","CM",
-               "","X","XX","XXX","XL","L","LX","LXX","LXXX","XC",
-               "","I","II","III","IV","V","VI","VII","VIII","IX"],
+        key = ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM",
+            "", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC",
+            "", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"],
         roman = "",
         i = 3;
     while (i--)
@@ -102,11 +102,18 @@ function generateResponse(cardIndex) {
 
 }
 
-function changeCard() {
+function changeCard(inRandomValue) {
+
     let randomValue = 0;
-    do {
-        randomValue = getRandomNumber(0, CONFIG.length - 1);
-    } while (currentCard.Name == CONFIG[randomValue].Name);
+    if (inRandomValue != null)
+        randomValue = inRandomValue;
+
+    else {
+        do {
+            randomValue = getRandomNumber(0, CONFIG.length - 1);
+        } while (currentCard.Name == CONFIG[randomValue].Name);
+    }
+
     currentCard = CONFIG[randomValue];
     $('#initialContainerCardImage').attr('src', IMAGE_PATH + currentCard.Image);
     $('#initialContainerNameTitle').text(romanize(currentCard.Value) + ". " + currentCard.Name);
@@ -116,8 +123,48 @@ function changeCard() {
     console.log("Card: " + JSON.stringify(currentCard));
 }
 
+var arcanosSelect;
+
+function createSlider() {
+    let data = CONFIG.map(({ Name, Value }) => {
+        return romanize(Value) + ". " + Name;
+    });
+    console.log(data);
+
+    arcanosSelect = new MobileSelect({
+        trigger: '#initialContainerNameTitle',
+        title: 'ARCANOS MAYORES',
+        cascade: true,
+        ensureBtnText: "Ok",
+        ensureBtnColor: "#000A0D",
+        cancelBtnText: "Cancelar",
+        cancelBtnColor: "#000A0D",
+        bgColor: "#000000",
+        textColor: "#ffffff",
+        wheels: [
+            { data: data }
+        ],
+        onChange: function (data, indexArr, instance) {
+            ClickSound.play();
+            let cardIndex = indexArr[0];
+            changeCard(cardIndex);
+            oldResponse = "";
+        },
+        onShow: function (instance) {
+            ClickSound.play();
+        },
+        onCancel: function (data, indexArr, instance) {
+            ClickSound.play();
+        }
+    });
+
+
+
+}
+
 $(document).ready(function () {
 
+    createSlider();
     changeCard();
     createSounds();
 
