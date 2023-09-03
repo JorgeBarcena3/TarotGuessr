@@ -13,17 +13,16 @@ const PRECACHE_ASSETS = [
 
 // Listener for the install event - precaches our assets list on service worker install.
 self.addEventListener('install', event => {
-    event.waitUntil((async () => {
-        const cache = await caches.open(CACHE_NAME);
-        cache.addAll(PRECACHE_ASSETS);
-    })());
-});
-self.addEventListener('load', event => {
-    debugger;
-    event.waitUntil((async () => {
-        const cache = await caches.open(CACHE_NAME);
-        cache.addAll(PRECACHE_ASSETS);
-    })());
+
+    event.waitUntil(
+        async () => {
+            const cache = await caches.open(CACHE_NAME);
+            console.log('Service Worker: Caching Files', cache);
+            await cache.addAll(PRECACHE_ASSETS);
+            self.skipWaiting();
+        }
+    );
+
 });
 
 self.addEventListener('activate', event => {
