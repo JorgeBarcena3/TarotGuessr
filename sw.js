@@ -4,6 +4,15 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox
 
 // TODO: replace the following with the correct offline fallback page i.e.: const offlineFallbackPage = "offline.html";
 const offlineFallbackPage = [
+    "./config/config.js",
+    "./index.html",
+    "./lib/mobile-select-master/dist/style/mobile-select.css",
+    "./lib/mobile-select-master/dist/mobile-select.iife.min.js",
+    "./lib/jquery-3.7.1.min.js.js",
+    "./scripts/tarotGuesr.js",
+    "./manifest.json",
+    "./styles/styles.css",
+    "./sw.js",
     "./images/16.TORRE.png",
     "./images/18.LUNA.png",
     "./images/17.ESTRELLA.png",
