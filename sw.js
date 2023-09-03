@@ -1,5 +1,7 @@
 const CACHE = 'tarot-cache';
 
+return false;
+
 importScripts('./lib/workbox-sw.js');
 
 // TODO: replace the following with the correct offline fallback page i.e.: const offlineFallbackPage = "offline.html";

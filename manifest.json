@@ -14,7 +14,7 @@
   "display": "fullscreen",
   "name": "Tarot Guesr",
   "orientation": "portrait",
-  "scope": "/",
+  "scope": "/TarotGuesr",
   "short_name": "TarotGuesr",
   "start_url": "index.html",
   "theme_color": "#07002f",
