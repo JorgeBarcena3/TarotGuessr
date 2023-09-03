@@ -137,7 +137,7 @@ function createSlider() {
         cascade: true,
         ensureBtnText: "Ok",
         ensureBtnColor: "#000A0D",
-        cancelBtnText: "Cancelar",
+        cancelBtnText: "",
         cancelBtnColor: "#000A0D",
         bgColor: "#000000",
         textColor: "#ffffff",
@@ -153,7 +153,7 @@ function createSlider() {
         onShow: function (instance) {
             ClickSound.play();
         },
-        onCancel: function (data, indexArr, instance) {
+        onHide: function (data, indexArr, instance) {
             ClickSound.play();
         }
     });
