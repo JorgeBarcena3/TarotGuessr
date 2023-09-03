@@ -13,6 +13,14 @@ let GoodSound;
 let WrongSound;
 let Deselect;
 
+function preparePage()
+{
+    $('#headerContainerTitle').text(CONFIG.APP_NAME);
+    document.title = CONFIG.APP_NAME;
+
+
+}
+
 function createSounds() {
 
     ClickSound = document.createElement('audio');
@@ -199,6 +207,7 @@ function hideInfo() {
 
 $(document).ready(function () {
 
+    preparePage();
     createSlider();
     changeCard();
     createSounds();

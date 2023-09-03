@@ -1,5 +1,6 @@
 var IMAGE_PATH = "./images/";
 var MAX_ANSWERS = 4;
+var APP_NAME = "Tarot Guessr"
 var CONFIG = [
     {
         "Name": "LOCO",
