@@ -3,11 +3,11 @@ const CACHE_NAME = 'tarot-cache';
 // Add whichever assets you want to precache here:
 const PRECACHE_ASSETS = [
     '/images/*',
-    '/config/',
-    '/scripts/',
-    '/Sounds/',
-    '/Styles/',
-    '/lib/',
+    '/config/*',
+    '/scripts/*',
+    '/Sounds/*',
+    '/Styles/*',
+    '/lib/*',
     "/index.html"
 ]
 
