@@ -32,6 +32,8 @@ function createSounds() {
 function romanize(num) {
     if (isNaN(num))
         return NaN;
+    if (num == 0)
+        return "0";
     var digits = String(+num).split(""),
         key = ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM",
             "", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC",
@@ -47,7 +49,7 @@ function revelateResponse(response) {
     $(".initialContainerAnwser").each(function () {
         let optionResponse = $(this)[0].innerText;
 
-        if (optionResponse == currentCard.Description) {
+        if (optionResponse == currentCard.Response) {
             $(this).css("background", "green");
         }
 
@@ -55,7 +57,7 @@ function revelateResponse(response) {
 }
 
 function checkResponse(response) {
-    if (response == currentCard.Description) {
+    if (response == currentCard.Response) {
         mPoints++;
     }
     else {
@@ -64,12 +66,12 @@ function checkResponse(response) {
 
     $('#points').text(mPoints);
 
-    return response == currentCard.Description;
+    return response == currentCard.Response;
 }
 
 function generateResponse(cardIndex) {
     let responses = [];
-    responses.push(CONFIG[cardIndex].Description);
+    responses.push(CONFIG[cardIndex].Response);
 
     let CardsResponse = [...CONFIG];
     CardsResponse.splice(cardIndex, 1);
@@ -81,7 +83,7 @@ function generateResponse(cardIndex) {
             randomIndex = getRandomNumber(0, CardsResponse.length - 1);
         } while (randomIndex == cardIndex);
 
-        responses.push(CardsResponse[randomIndex].Description);
+        responses.push(CardsResponse[randomIndex].Response);
         CardsResponse.splice(randomIndex, 1);
     }
 
@@ -149,6 +151,7 @@ function createSlider() {
             let cardIndex = indexArr[0];
             changeCard(cardIndex);
             oldResponse = "";
+            hideInfo();
         },
         onShow: function (instance) {
             ClickSound.play();
@@ -159,6 +162,38 @@ function createSlider() {
     });
 
 
+
+}
+
+function showInfo() {
+    if (isAnimating)
+        return;
+    isAnimating = true;
+    $("#initialContainerCardInfo").text(currentCard.Description);
+    $("#initialContainerCardInfo").attr('enabled', 'enabled');
+    $("#initialContainerCardInfo").css("opacity", 1);
+    $("#initialContainerCardInfo").css("z-index", "1");
+    isAnimating = false;
+
+}
+
+let isAnimating = false;
+const delay = ms => new Promise(res => setTimeout(res, ms));
+const quitInfo = async () => {
+    await delay(2000);
+    $("#initialContainerCardInfo").css("z-index", "-1");
+    $("#initialContainerCardInfo").attr('disabled', 'disabled');
+    isAnimating = false;
+
+};
+
+function hideInfo() {
+
+    if (isAnimating) return;
+
+    isAnimating = true;
+    $("#initialContainerCardInfo").css("opacity", 0);
+    quitInfo();
 
 }
 
@@ -173,9 +208,18 @@ $(document).ready(function () {
         mPoints = 0;
     });
 
-    $("#initialContainerCardImage").on("click", function () {
+    $("#footerContainerTitle").on("click", function () {
         changeCard();
         oldResponse = "";
+        hideInfo();
+    });
+
+    $("#initialContainerCardImage").on("click", function () {
+        showInfo();
+    });
+
+    $("#initialContainerCardInfo").on("click", function () {
+        hideInfo();
     });
 
     let oldResponse = "";
@@ -184,6 +228,7 @@ $(document).ready(function () {
         if (!isGaming) {
             changeCard();
             oldResponse = "";
+            hideInfo();
             return;
         }
 
