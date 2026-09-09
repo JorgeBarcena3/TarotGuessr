@@ -1,0 +1,9 @@
+services:
+  tarotguessr:
+    image: nginx:alpine
+    container_name: tarotguessr
+    restart: always
+    ports:
+      - "6682:80"
+    volumes:
+      - .:/usr/share/nginx/html:ro
