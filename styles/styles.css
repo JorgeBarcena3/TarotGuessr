@@ -1,19 +1,21 @@
-body {
-    font-family: "Lucida Console", "Courier New", monospace;
-    background: #000a35;
-    color: #f7f9fb;
+/* RESET & BASE */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body {
     margin: 0;
     padding: 0;
-    min-height: 100vh;
-    box-sizing: border-box;
+    width: 100%;
+    min-height: 100%;
+    background-color: #000a35;
+    color: #f7f9fb;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Lucida Console", "Courier New", monospace;
     overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
 }
 
-*, *::before, *::after {
-    box-sizing: inherit;
-}
-
-/* Background animated particles */
+/* BACKGROUND PARTICLES */
 .background {
     position: fixed;
     top: 0;
@@ -21,7 +23,7 @@ body {
     width: 100vw;
     height: 100vh;
     z-index: -50;
-    background: linear-gradient(135deg, #02071f 0%, #061539 50%, #000a35 100%);
+    background: linear-gradient(145deg, #01061f 0%, #05143a 50%, #000a35 100%);
     pointer-events: none;
 }
 
@@ -42,39 +44,36 @@ body {
     list-style: none;
     width: 20px;
     height: 20px;
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.07);
     animation: animate 25s linear infinite;
     bottom: -150px;
     border-radius: 100%;
 }
 
-.circles li:nth-child(1) { left: 5%; width: 60px; height: 60px; animation-delay: 0s; }
-.circles li:nth-child(2) { left: 15%; width: 20px; height: 20px; animation-delay: 2s; animation-duration: 12s; }
-.circles li:nth-child(3) { left: 60%; width: 25px; height: 25px; animation-delay: 4s; }
-.circles li:nth-child(4) { left: 35%; width: 50px; height: 50px; animation-delay: 0s; animation-duration: 18s; }
-.circles li:nth-child(5) { left: 75%; width: 20px; height: 20px; animation-delay: 1s; }
-.circles li:nth-child(6) { left: 85%; width: 70px; height: 70px; animation-delay: 3s; }
-.circles li:nth-child(7) { left: 45%; width: 90px; height: 90px; animation-delay: 7s; }
-.circles li:nth-child(8) { left: 68%; width: 25px; height: 25px; animation-delay: 12s; animation-duration: 35s; }
-.circles li:nth-child(9) { left: 25%; width: 15px; height: 15px; animation-delay: 2s; animation-duration: 28s; }
-.circles li:nth-child(10) { left: 92%; width: 80px; height: 80px; animation-delay: 5s; animation-duration: 14s; }
+.circles li:nth-child(1) { left: 5%; width: 45px; height: 45px; animation-delay: 0s; }
+.circles li:nth-child(2) { left: 15%; width: 18px; height: 18px; animation-delay: 2s; animation-duration: 12s; }
+.circles li:nth-child(3) { left: 60%; width: 22px; height: 22px; animation-delay: 4s; }
+.circles li:nth-child(4) { left: 35%; width: 40px; height: 40px; animation-delay: 0s; animation-duration: 18s; }
+.circles li:nth-child(5) { left: 75%; width: 16px; height: 16px; animation-delay: 1s; }
+.circles li:nth-child(6) { left: 85%; width: 50px; height: 50px; animation-delay: 3s; }
+.circles li:nth-child(7) { left: 45%; width: 65px; height: 65px; animation-delay: 7s; }
+.circles li:nth-child(8) { left: 68%; width: 20px; height: 20px; animation-delay: 12s; animation-duration: 35s; }
+.circles li:nth-child(9) { left: 25%; width: 14px; height: 14px; animation-delay: 2s; animation-duration: 28s; }
+.circles li:nth-child(10) { left: 92%; width: 60px; height: 60px; animation-delay: 5s; animation-duration: 14s; }
 
 @keyframes animate {
     0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
     100% { transform: translateY(-1200px) rotate(720deg); opacity: 0; }
 }
 
-/* HEADER */
+/* HEADER COMPACT & SAFE FOR MOBILE */
 #headerContainer {
     width: 100%;
-    padding: 12px 16px;
-    background: rgba(0, 5, 27, 0.85);
+    padding: 8px 12px;
+    background: rgba(0, 5, 27, 0.92);
     backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 215, 0, 0.25);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -82,61 +81,61 @@ body {
 
 .headerTop {
     width: 100%;
-    max-width: 900px;
+    max-width: 800px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 8px;
 }
 
 #headerContainerTitle {
     color: #ffd700;
-    font-size: 1.4rem;
-    font-weight: bold;
-    letter-spacing: 2px;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.35);
     cursor: pointer;
+    white-space: nowrap;
 }
 
 /* Mode Switch Tabs */
 .modeTabs {
     display: flex;
-    background: rgba(0, 15, 45, 0.9);
+    background: rgba(0, 15, 45, 0.95);
     border: 1px solid rgba(255, 215, 0, 0.35);
     border-radius: 20px;
-    padding: 3px;
-    gap: 4px;
+    padding: 2px;
+    gap: 3px;
+    flex-shrink: 0;
 }
 
 .modeTabBtn {
     background: transparent;
     border: none;
-    color: #a4b3d6;
-    padding: 6px 14px;
-    font-size: 0.82rem;
+    color: #9cb3db;
+    padding: 5px 11px;
+    font-size: 0.78rem;
     border-radius: 16px;
     cursor: pointer;
     font-family: inherit;
     font-weight: bold;
-    transition: all 0.25s ease;
-}
-
-.modeTabBtn:hover {
-    color: #ffffff;
+    transition: all 0.2s ease;
+    white-space: nowrap;
 }
 
 .modeTabBtn.active {
     background: linear-gradient(135deg, #ffd700, #ffaa00);
-    color: #000a26;
-    box-shadow: 0 2px 8px rgba(255, 215, 0, 0.35);
+    color: #00081d;
+    box-shadow: 0 2px 6px rgba(255, 215, 0, 0.3);
 }
 
-/* MAIN VIEW CONTAINER */
+/* VIEW CONTAINER */
 .viewContainer {
     width: 100%;
-    max-width: 900px;
+    max-width: 650px;
     margin: 0 auto;
-    padding: 12px 14px 60px 14px;
-    min-height: calc(100vh - 120px);
+    padding: 8px 12px 24px 12px;
 }
 
 /* QUIZ VIEW */
@@ -144,67 +143,65 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
-    flex-wrap: wrap;
+    margin-bottom: 8px;
     gap: 8px;
 }
 
 .filterGroup {
     display: flex;
-    gap: 6px;
-    background: rgba(1, 20, 50, 0.7);
-    padding: 3px;
+    gap: 3px;
+    background: rgba(1, 20, 50, 0.85);
+    padding: 2px 4px;
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .filterBtn {
     background: transparent;
     border: none;
-    color: #9cb1d4;
-    font-size: 0.75rem;
-    padding: 4px 10px;
+    color: #8fa7ce;
+    font-size: 0.72rem;
+    padding: 4px 8px;
     border-radius: 8px;
     cursor: pointer;
     font-family: inherit;
-    transition: all 0.2s ease;
+    font-weight: 600;
+    transition: all 0.15s ease;
 }
 
 .filterBtn.active {
     background: #0d3869;
     color: #ffd700;
-    font-weight: bold;
 }
 
 .statsDisplay {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 0.85rem;
+    gap: 6px;
+    font-size: 0.8rem;
+    color: #b0c2de;
 }
 
 .scoreBadge {
-    background: rgba(0, 255, 221, 0.15);
+    background: rgba(0, 255, 221, 0.18);
     border: 1px solid rgba(0, 255, 221, 0.6);
     color: #00ffdd;
-    padding: 4px 10px;
-    border-radius: 12px;
+    padding: 2px 8px;
+    border-radius: 10px;
     font-weight: bold;
+    min-width: 26px;
+    text-align: center;
 }
 
 .resetBtn {
     background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    color: #a0aec0;
-    padding: 3px 8px;
+    color: #8fa7ce;
+    padding: 2px 6px;
     border-radius: 6px;
     cursor: pointer;
-    font-size: 0.75rem;
+    font-size: 0.68rem;
     font-family: inherit;
-}
-.resetBtn:hover {
-    color: #fff;
-    border-color: #fff;
 }
 
 /* Card Showcase Box */
@@ -213,47 +210,47 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 
 .cardHeaderInfo {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 4px;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .cardTitleButton {
-    background: rgba(0, 7, 37, 0.9);
+    background: rgba(0, 7, 37, 0.95);
     color: #ffffff;
     border: 1.5px solid rgba(255, 215, 0, 0.4);
-    box-shadow: 2px 2px 0px rgba(255, 215, 0, 0.2);
-    padding: 6px 16px;
-    font-size: 1rem;
+    box-shadow: 1px 1px 0px rgba(255, 215, 0, 0.25);
+    padding: 4px 12px;
+    font-size: 0.9rem;
     font-weight: bold;
     border-radius: 6px;
     cursor: pointer;
     text-transform: uppercase;
     font-family: inherit;
-    transition: all 0.2s ease;
+    letter-spacing: 0.5px;
 }
 
-.cardTitleButton:hover {
-    border-color: #ffd700;
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+.cardTitleButton:active {
+    transform: scale(0.98);
 }
 
 .orientationBadge {
     display: inline-flex;
     align-items: center;
-    gap: 5px;
-    font-size: 0.78rem;
-    padding: 3px 10px;
-    border-radius: 10px;
-    font-weight: bold;
+    gap: 4px;
+    font-size: 0.72rem;
+    padding: 3px 8px;
+    border-radius: 8px;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
 }
 
 .orientationBadge.upright {
@@ -263,32 +260,33 @@ body {
 }
 
 .orientationBadge.reversed {
-    background: rgba(231, 76, 60, 0.2);
+    background: rgba(231, 76, 60, 0.25);
     border: 1px solid #e74c3c;
     color: #ff6b6b;
 }
 
-/* Card Frame */
+/* Card Frame - Responsive height tailored for mobile viewport */
 .cardFrame {
     position: relative;
-    width: 200px;
-    height: 310px;
-    border-radius: 14px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+    width: min(220px, 48vw);
+    height: min(290px, 34vh);
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.55);
     cursor: pointer;
     perspective: 1000px;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0 auto;
 }
 
 .cardImageWrapper {
     width: 100%;
     height: 100%;
     position: relative;
-    border-radius: 14px;
+    border-radius: 12px;
     overflow: hidden;
-    border: 2px solid rgba(255, 215, 0, 0.3);
+    border: 2px solid rgba(255, 215, 0, 0.35);
     background: #021226;
     display: flex;
     align-items: center;
@@ -299,7 +297,8 @@ body {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
 }
 
 .cardImageWrapper.is-reversed img {
@@ -313,22 +312,23 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 8, 25, 0.94);
-    border-radius: 14px;
-    padding: 14px;
+    background: rgba(0, 8, 25, 0.96);
+    border-radius: 12px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: #e6edff;
-    font-size: 0.82rem;
-    line-height: 1.4;
+    font-size: 0.76rem;
+    line-height: 1.35;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.25s ease;
     overflow-y: auto;
-    border: 1px solid rgba(255, 215, 0, 0.3);
+    border: 1.5px solid rgba(255, 215, 0, 0.4);
+    z-index: 10;
 }
 
 .cardInfoOverlay.visible {
@@ -337,47 +337,48 @@ body {
 }
 
 .overlayKeywords {
-    margin-top: 8px;
+    margin-top: 6px;
     display: flex;
     flex-wrap: wrap;
-    gap: 4px;
+    gap: 3px;
     justify-content: center;
 }
 
 .keywordTag {
     background: rgba(255, 215, 0, 0.15);
     color: #ffd700;
-    padding: 2px 7px;
-    border-radius: 8px;
-    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-size: 0.65rem;
     border: 1px solid rgba(255, 215, 0, 0.3);
 }
 
 .tapHint {
-    font-size: 0.7rem;
-    color: #7d90b3;
-    margin-top: 4px;
+    font-size: 0.68rem;
+    color: #7d94b8;
+    margin-top: 3px;
+    text-align: center;
 }
 
 /* Question Banner */
 .questionBanner {
-    background: rgba(0, 10, 35, 0.8);
-    border: 1px solid rgba(255, 215, 0, 0.2);
-    padding: 8px 14px;
+    background: rgba(0, 10, 35, 0.9);
+    border: 1px solid rgba(255, 215, 0, 0.25);
+    padding: 6px 10px;
     border-radius: 8px;
     text-align: center;
-    font-size: 0.85rem;
+    font-size: 0.78rem;
     color: #ffd700;
-    margin-bottom: 10px;
-    font-weight: bold;
-    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
 }
 
 /* Answers Grid */
 .answersList {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
     width: 100%;
     max-width: 580px;
     margin: 0 auto;
@@ -386,27 +387,30 @@ body {
 .answerBtn {
     background: #042d47;
     color: #f0f4f8;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.16);
     border-radius: 8px;
-    padding: 10px 14px;
-    font-size: 0.85rem;
-    line-height: 1.35;
+    padding: 8px 12px;
+    min-height: 38px;
+    font-size: 0.8rem;
+    line-height: 1.3;
     cursor: pointer;
     font-family: inherit;
     text-align: left;
-    transition: background 0.2s, transform 0.1s, border-color 0.2s;
+    transition: background 0.15s, border-color 0.15s, transform 0.1s;
     user-select: none;
     -webkit-user-select: none;
+    display: flex;
+    align-items: center;
 }
 
-.answerBtn:hover:not(:disabled) {
-    background: #08436b;
-    border-color: rgba(255, 215, 0, 0.5);
+.answerBtn:active {
+    transform: scale(0.99);
 }
 
 .answerBtn.selected {
-    background: #125b89;
+    background: #105580;
     border-color: #00ffdd;
+    box-shadow: 0 0 6px rgba(0, 255, 221, 0.3);
 }
 
 .answerBtn.correct {
@@ -422,11 +426,11 @@ body {
     color: #ffffff;
 }
 
-/* Feedback / Next button */
+/* Quiz Action Box (Next Button) */
 .quizActionBox {
     text-align: center;
-    margin-top: 14px;
-    min-height: 40px;
+    margin-top: 10px;
+    min-height: 36px;
 }
 
 .nextCardBtn {
@@ -434,48 +438,42 @@ body {
     color: #00081d;
     font-family: inherit;
     font-weight: bold;
-    font-size: 0.95rem;
+    font-size: 0.88rem;
     border: none;
-    padding: 8px 24px;
-    border-radius: 20px;
+    padding: 8px 22px;
+    border-radius: 18px;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
-    transition: transform 0.15s ease;
+    box-shadow: 0 3px 12px rgba(255, 215, 0, 0.3);
 }
 
-.nextCardBtn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.45);
+.nextCardBtn:active {
+    transform: scale(0.97);
 }
 
 /* LEARN MODE STYLES */
 .learnToolbar {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 16px;
-    background: rgba(0, 10, 30, 0.7);
-    padding: 10px 14px;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 215, 0, 0.15);
+    margin-bottom: 12px;
+    background: rgba(0, 10, 30, 0.8);
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 215, 0, 0.2);
 }
 
 .learnSearchInput {
-    background: rgba(2, 20, 50, 0.9);
+    background: rgba(2, 20, 50, 0.95);
     border: 1px solid rgba(255, 215, 0, 0.3);
     color: #ffffff;
-    padding: 6px 12px;
+    padding: 6px 10px;
     border-radius: 8px;
     font-family: inherit;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     flex: 1;
-    min-width: 180px;
-}
-
-.learnSearchInput::placeholder {
-    color: #6d84a8;
+    min-width: 140px;
 }
 
 .learnSearchInput:focus {
@@ -485,37 +483,36 @@ body {
 
 .learnCardGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 16px;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+@media (min-width: 600px) {
+    .learnCardGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 .learnCard {
-    background: rgba(0, 14, 42, 0.85);
-    border: 1px solid rgba(255, 215, 0, 0.2);
-    border-radius: 14px;
-    padding: 14px;
+    background: rgba(0, 14, 42, 0.9);
+    border: 1px solid rgba(255, 215, 0, 0.22);
+    border-radius: 12px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
-}
-
-.learnCard:hover {
-    transform: translateY(-3px);
-    border-color: rgba(255, 215, 0, 0.5);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    gap: 8px;
 }
 
 .learnCardTop {
     display: flex;
-    gap: 12px;
+    gap: 10px;
     align-items: center;
 }
 
 .learnThumbnail {
-    width: 60px;
-    height: 95px;
-    border-radius: 8px;
+    width: 52px;
+    height: 82px;
+    border-radius: 6px;
     overflow: hidden;
     flex-shrink: 0;
     border: 1px solid rgba(255, 215, 0, 0.3);
@@ -530,7 +527,7 @@ body {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
-    transition: transform 0.4s ease;
+    transition: transform 0.35s ease;
 }
 
 .learnThumbnail.reversed img {
@@ -539,17 +536,21 @@ body {
 
 .learnHeaderMeta {
     flex: 1;
+    min-width: 0;
 }
 
 .learnCardName {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: bold;
     color: #ffd700;
-    margin: 0 0 4px 0;
+    margin: 0 0 2px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .learnCardNumber {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     color: #00ffdd;
     margin: 0;
 }
@@ -557,18 +558,19 @@ body {
 .learnOrientationToggle {
     display: flex;
     gap: 4px;
-    margin-top: 6px;
+    margin-top: 4px;
 }
 
 .learnOrientationBtn {
     background: rgba(255, 255, 255, 0.08);
     border: none;
-    color: #a4b3d6;
-    padding: 3px 8px;
+    color: #9cb3db;
+    padding: 3px 7px;
     border-radius: 6px;
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     cursor: pointer;
     font-family: inherit;
+    font-weight: 600;
 }
 
 .learnOrientationBtn.active.upright {
@@ -584,11 +586,11 @@ body {
 }
 
 .learnBody {
-    font-size: 0.8rem;
-    color: #ccd8ed;
-    line-height: 1.4;
-    background: rgba(0, 8, 25, 0.6);
-    padding: 8px 10px;
+    font-size: 0.76rem;
+    color: #c9d8ee;
+    line-height: 1.35;
+    background: rgba(0, 8, 25, 0.65);
+    padding: 8px;
     border-radius: 8px;
     border-left: 3px solid #ffd700;
 }
@@ -600,40 +602,29 @@ body {
 .learnKeywords {
     display: flex;
     flex-wrap: wrap;
-    gap: 4px;
+    gap: 3px;
 }
 
 /* FOOTER */
 #footerContainer {
     width: 100%;
-    padding: 12px;
+    padding: 10px;
     background: rgba(0, 5, 27, 0.95);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
     text-align: center;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     color: #7b8ea8;
 }
 
-#footerContainer a {
-    color: #ffd700;
-    text-decoration: none;
-}
-
-/* Responsive tweaks */
-@media (max-width: 480px) {
-    #headerContainerTitle {
-        font-size: 1.15rem;
-    }
+/* Extra small screens */
+@media (max-height: 650px) {
     .cardFrame {
-        width: 170px;
-        height: 265px;
-    }
-    .cardTitleButton {
-        font-size: 0.85rem;
-        padding: 5px 12px;
+        height: 200px;
+        width: 150px;
     }
     .answerBtn {
-        font-size: 0.8rem;
-        padding: 8px 10px;
+        padding: 6px 10px;
+        min-height: 32px;
+        font-size: 0.75rem;
     }
 }
