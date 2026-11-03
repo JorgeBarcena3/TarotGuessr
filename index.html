@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tarot Guessr</title>
+    <title>Tarot Guessr - Arcanos Mayores</title>
     <link rel="stylesheet" type="text/css" href="lib/mobile-select-master/dist/style/mobile-select.css" />
     <link rel="manifest" href="manifest.json" />
     <link rel="stylesheet" href="styles/styles.css">
@@ -19,70 +19,100 @@
     <script type="text/javascript" src="lib/mobile-select-master/dist/mobile-select.iife.min.js"></script>
     <script src="config/config.js"></script>
     <script src="scripts/tarotGuesr.js"></script>
-
 </head>
 
-<body style="margin: 0;">
+<body>
 
     <div class="background">
         <ul class="circles">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li></li><li></li><li></li><li></li><li></li>
+            <li></li><li></li><li></li><li></li><li></li>
         </ul>
     </div>
 
-    <div id="headerContainer">
-        <div id="headerContainerTitle">Tarot Guessr</div>
-    </div>
-    <div id="initialContainer">
-        <div id="initialContainerName">
-            <div class="initialContainerNameTitle" id="initialContainerNameTitle">XX NAME CARD</div>
-            <div id="initialContainerNamePoints">
-                <p id="points" style="margin: 0;">0</p>
+    <!-- HEADER WITH MODE SELECTOR -->
+    <header id="headerContainer">
+        <div class="headerTop">
+            <div id="headerContainerTitle">Tarot Guessr</div>
+            <nav class="modeTabs" role="tablist" aria-label="Modo de juego">
+                <button type="button" class="modeTabBtn active" id="tabQuizBtn" data-mode="quiz">🔮 Modo Quiz</button>
+                <button type="button" class="modeTabBtn" id="tabLearnBtn" data-mode="learn">📖 Aprendizaje</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- QUIZ VIEW CONTAINER -->
+    <main id="quizView" class="viewContainer">
+        <div class="quizSubHeader">
+            <div class="filterGroup" id="quizOrientationFilter" role="group" aria-label="Filtro de orientación">
+                <button type="button" class="filterBtn active" data-orientation="all">Ambos</button>
+                <button type="button" class="filterBtn" data-orientation="upright">Normal</button>
+                <button type="button" class="filterBtn" data-orientation="reversed">Invertido</button>
+            </div>
+            <div class="statsDisplay">
+                <span>Aciertos:</span>
+                <span class="scoreBadge" id="points">0</span>
+                <button type="button" class="resetBtn" id="resetScoreBtn" title="Reiniciar marcador">Reset</button>
             </div>
         </div>
-        <div id="initialContainerCard">
-            <img src="./images/1.MAGO.png" id="initialContainerCardImage"></img>
-            <div id="initialContainerCardInfo">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at dolor
-                in orci eleifend fermentum non vitae ligula. Phasellus id elit purus. In sed condimentum nunc. Aliquam
-                sagittis, sapien eu lobortis tempor, arcu purus posuere purus, eu condimentum leo nunc eu neque. Donec
-                interdum nisl vitae tortor lacinia pharetra. Nulla scelerisque neque lectus, vel ultricies nulla aliquam
-                et. In elementum nisi quis tortor porttitor fermentum. Sed a molestie purus. Ut sit amet sodales nunc,
-                nec ultrices urna. Nam pellentesque, sem in fringilla dapibus</div>
-        </div>
-        <div id="initialContainerQuestion">
-            <div id="initialContainerQuestionTitle">SE CARACTERIZA POR: </div>
 
-        </div>
-        <div id="initialContainerAnwsers">
-            <button class="initialContainerAnwser" id="initialContainerAnwser1">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </button>
-            <button class="initialContainerAnwser" id="initialContainerAnwser2">
-                <p>Lorem ipsum dolor sit amet</p>
-            </button>
-            <button class="initialContainerAnwser" id="initialContainerAnwser3">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </button>
-            <button class="initialContainerAnwser" id="initialContainerAnwser4">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </button>
-        </div>
-    </div>
-    <div id="footerContainer">
-        <div id="footerContainerTitle">Jorge Barcena ©</div>
-    </div>
+        <section class="cardStage">
+            <div class="cardHeaderInfo">
+                <button type="button" class="cardTitleButton" id="initialContainerNameTitle" title="Toca para elegir arcano">I. EL MAGO</button>
+                <div class="orientationBadge upright" id="currentOrientationBadge">
+                    <span id="orientationIcon">⬆</span>
+                    <span id="orientationText">Normal</span>
+                </div>
+            </div>
 
+            <div class="cardFrame" id="cardInteractiveFrame" title="Haz clic en la carta para ver u ocultar detalles">
+                <div class="cardImageWrapper" id="cardImageWrapper">
+                    <img src="./images/1.MAGO.png" id="initialContainerCardImage" alt="Carta de Tarot">
+                </div>
+                <div class="cardInfoOverlay" id="initialContainerCardInfo">
+                    <p id="overlayCardDescription" style="margin: 0 0 8px 0;"></p>
+                    <div class="overlayKeywords" id="overlayCardKeywords"></div>
+                    <span class="tapHint">Toca para volver a la carta</span>
+                </div>
+            </div>
+            <span class="tapHint" style="margin-top: 6px;">💡 Toca la carta para ver chuleta / significado</span>
+        </section>
 
+        <section class="questionBanner" id="initialContainerQuestionTitle">
+            ¿CUÁL ES EL SIGNIFICADO DE ESTA CARTA?
+        </section>
+
+        <section class="answersList" id="initialContainerAnwsers">
+            <button type="button" class="answerBtn" id="initialContainerAnwser1"></button>
+            <button type="button" class="answerBtn" id="initialContainerAnwser2"></button>
+            <button type="button" class="answerBtn" id="initialContainerAnwser3"></button>
+            <button type="button" class="answerBtn" id="initialContainerAnwser4"></button>
+        </section>
+
+        <div class="quizActionBox">
+            <button type="button" class="nextCardBtn" id="nextCardButton" style="display: none;">Siguiente Arcano ➔</button>
+        </div>
+    </main>
+
+    <!-- LEARN MODE VIEW CONTAINER -->
+    <main id="learnView" class="viewContainer" style="display: none;">
+        <div class="learnToolbar">
+            <input type="text" id="learnSearchInput" class="learnSearchInput" placeholder="🔍 Buscar arcano o significado..." />
+            <div class="filterGroup" id="learnOrientationFilter">
+                <button type="button" class="filterBtn active" data-learn-filter="all">Todas</button>
+                <button type="button" class="filterBtn" data-learn-filter="upright">Normales</button>
+                <button type="button" class="filterBtn" data-learn-filter="reversed">Invertidas</button>
+            </div>
+        </div>
+
+        <section class="learnCardGrid" id="learnCardGrid">
+            <!-- Populated dynamically via JS -->
+        </section>
+    </main>
+
+    <footer id="footerContainer">
+        <div id="footerContainerTitle">Jorge Barcena © · Tarot Guessr: Aprende los 22 Arcanos Mayores</div>
+    </footer>
 
 </body>
-
 </html>
